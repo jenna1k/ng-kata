@@ -10,11 +10,11 @@ import { Observable } from 'rxjs';
   styleUrls: ['./movie-home.component.scss']
 })
 export class MovieHomeComponent implements OnInit {
-  movie$: Observable<Movie[]>; // observable$ naming convention
+  movies$: Observable<Movie[]>; // observable$ naming convention
   constructor(private query: MovieQuery, private service: MovieService) { }
 
   ngOnInit() {
-    this.movie$ = this.query.selectAll();
+    this.movies$ = this.query.selectAll();
     this.service.get();
   }
 

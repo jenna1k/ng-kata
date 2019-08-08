@@ -15,6 +15,7 @@ export class MovieService {
   get() {
     // return observable
     this.movieStore.setLoading(true);
+    // tslint:disable-next-line: max-line-length
     return this.http.get<Movie[]>('https://gist.githubusercontent.com/yannski/3019778/raw/dfb34d018165f47b61b3bf089358a3d5ca199d96/movies.json')
     .subscribe(movies => {
       this.movieStore.upsertMany(movies); // update or set
