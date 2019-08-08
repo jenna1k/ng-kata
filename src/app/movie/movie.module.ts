@@ -8,11 +8,12 @@ import { MovieHomeComponent } from './movie-home/movie-home.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
+import { MovieItemComponent } from './movie-item/movie-item.component';
 
 
 
 @NgModule({
-  declarations: [MovieHomeComponent],
+  declarations: [MovieHomeComponent, MovieItemComponent],
   imports: [
     CommonModule,
     HttpClientModule,
