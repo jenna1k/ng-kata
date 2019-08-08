@@ -6,7 +6,7 @@
     "kata6": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:component": {
+        "@datorama/akita:component": {
           "style": "scss"
         }
       },
@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -93,6 +94,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -124,6 +126,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "kata6"
+    }
+  },
+  "defaultProject": "kata6",
+  "cli": {
+    "defaultCollection": "@datorama/akita"
+  }
 }
