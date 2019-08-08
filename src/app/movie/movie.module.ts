@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 // Component
 import { MovieHomeComponent } from './movie-home/movie-home.component';
+// Material
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -10,7 +12,9 @@ import { MovieHomeComponent } from './movie-home/movie-home.component';
   declarations: [MovieHomeComponent],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    // Material
+    MatCardModule
   ],
   exports: [
     MovieHomeComponent
