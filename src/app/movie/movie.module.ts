@@ -10,12 +10,13 @@ import  {MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MovieItemComponent } from './movie-item/movie-item.component';
 import { MatButtonModule } from '@angular/material/button'
-import { MatInputModule } from '@angular/material/input'
+import { MatInputModule } from '@angular/material/input';
+import { MovieFormComponent } from './movie-form/movie-form.component'
 
 
 
 @NgModule({
-  declarations: [MovieHomeComponent, MovieItemComponent],
+  declarations: [MovieHomeComponent, MovieItemComponent, MovieFormComponent],
   imports: [
     CommonModule,
     HttpClientModule,

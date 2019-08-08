@@ -42,8 +42,10 @@ export class MovieHomeComponent implements OnInit {
     this.movieForm.patchValue(movie);
   }
 
-  onSubmit() {
-    this.movieForm.patchValue({title: this.movieForm.title, description: this.movieForm.description})
+  updateActiveMovie() {
+    const movieId = this.query.getActiveId();
+    const updatedMovie = this.movieForm.value;
+    this.store.update(movieId, updatedMovie);
   }
 
 }

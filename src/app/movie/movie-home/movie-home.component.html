@@ -15,15 +15,10 @@
             </mat-select>
         </mat-form-field>
     </form>
-    <form [formGroup]="movieForm" (ngSubmit)="selectMovie">
-        <mat-form-field>
-            <input formControlName="title" matInput placeholder="Title" value="title">
-        </mat-form-field>
-        <mat-form-field>
-            <input formControlName="description" matInput placeholder="Description" value="description">
-        </mat-form-field>
-        <button mat-button type="submit">Update</button>
-    </form>
+    <movie-form
+    [formGroup]="movieForm"
+    (update)="updateActiveMovie()"
+  ></movie-form>
 </mat-card>
 <ng-container *ngFor="let movieObject of movies$ | async">
     <movie-item [movie]="movieObject" (selected)="selectMovie($event)"></movie-item>
