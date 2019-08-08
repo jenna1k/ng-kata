@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Movie } from '../+state/movie.model';
 
 @Component({
@@ -9,6 +9,7 @@ import { Movie } from '../+state/movie.model';
 export class MovieItemComponent{
 
   @Input() movie: Movie;
+  @Output() selected= new EventEmitter<Movie['id']>(); // Movie['id'] = string
 
   constructor() { }
 

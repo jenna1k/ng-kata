@@ -6,4 +6,7 @@
     <mat-card-content>
         <p>{{movie.description}}</p>
     </mat-card-content>
+    <mat-card-actions>
+        <button mat-button (click)="selected.emit(movie.id)">Select</button>
+    </mat-card-actions>
 </mat-card>

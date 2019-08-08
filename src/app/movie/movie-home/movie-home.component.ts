@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 import { Order } from '@datorama/akita';
 import { FormControl, FormGroup } from '@angular/forms';
 import { switchMap, startWith } from 'rxjs/operators'; //for Observable
+import { MovieStore } from '../+state/movie.store'; // for Output in movie-item
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'movie-home',
@@ -17,9 +19,13 @@ export class MovieHomeComponent implements OnInit {
   sortByForm = new FormGroup({
     sortBy: new FormControl('title'),
     sortByOrder: new FormControl(Order.DESC)
-  })
+  });
+  movieForm = new FormGroup({   // for Output in movie-item
+    title: new FormControl(''),
+    description: new FormControl(''),
+  });
 
-  constructor(private query: MovieQuery, private service: MovieService) { }
+  constructor(private query: MovieQuery, private service: MovieService, private store: MovieStore) { }
 
   ngOnInit() {
     this.movies$ = this.sortByForm.valueChanges.pipe( // Listen on changes from the control
@@ -27,6 +33,17 @@ export class MovieHomeComponent implements OnInit {
       switchMap(({sortBy, sortByOrder}) => this.query.selectAll({sortBy, sortByOrder}))
       );
     this.service.get();
+  }
+
+  selectMovie(id: string) {
+    console.log(id);
+    this.store.setActive(id);
+    const movie = this.query.getActive();
+    this.movieForm.patchValue(movie);
+  }
+
+  onSubmit() {
+    this.movieForm.patchValue({title: this.movieForm.title, description: this.movieForm.description})
   }
 
 }
