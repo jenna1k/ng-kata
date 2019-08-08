@@ -3,6 +3,7 @@ import { Movie } from '../+state/movie.model';
 import { MovieService } from '../+state/movie.service';
 import { MovieQuery } from '../+state/movie.query';
 import { Observable } from 'rxjs';
+import { Order } from '@datorama/akita';
 
 @Component({
   selector: 'movie-home',
@@ -14,7 +15,10 @@ export class MovieHomeComponent implements OnInit {
   constructor(private query: MovieQuery, private service: MovieService) { }
 
   ngOnInit() {
-    this.movies$ = this.query.selectAll();
+    this.movies$ = this.query.selectAll({
+      sortBy: 'rating',
+      sortByOrder: Order.DESC
+    });
     this.service.get();
   }
 
