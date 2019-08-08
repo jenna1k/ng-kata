@@ -1,10 +1,20 @@
 <mat-card>
-    <mat-form-field>
-        <mat-select [formControl]="sortByControl">
-            <mat-option value="title">title</mat-option>
-            <mat-option value="rating">rating</mat-option>
-        </mat-select>
-    </mat-form-field>
+    <form [formGroup]="sortByForm">
+        <mat-form-field>
+            <mat-label>sort by</mat-label>
+            <mat-select formControlName="sortBy">
+                <mat-option value="title">title</mat-option>
+                <mat-option value="rating">rating</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>sort by order</mat-label>
+            <mat-select formControlName="sortByOrder">
+                <mat-option value="aesc">AESC</mat-option>
+                <mat-option value="desc">DESC</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
 </mat-card>
 <mat-card *ngFor="let movie of movies$ | async">
     <mat-card-header>
