@@ -1,7 +1,11 @@
 import { ID } from '@datorama/akita';
 
 export interface Movie {
-  id: ID;
+  id: string;
+  cover_url: string;
+  description: string;
+  title: string;
+  rating: number;
 }
 
 /**
