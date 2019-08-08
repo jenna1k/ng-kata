@@ -6,7 +6,7 @@
     "kata6": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:component": {
+        "@datorama/akita:component": {
           "style": "scss"
         }
       },
@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "kata6"
+    }
+  },
+  "defaultProject": "kata6",
+  "cli": {
+    "defaultCollection": "@datorama/akita"
+  }
 }
