@@ -1,1 +1,5 @@
-<p>movie-home works!</p>
+<ul *noFor="let movie of movies$ | async">
+    <li>
+        {{movie.title}}
+    </li>
+</ul>
