@@ -12,5 +12,19 @@ export class MovieStore extends EntityStore<MovieState> {
     super();
   }
 
+  akitaPreAddEntity(movie: Movie) {
+    if (movie.cover_url) {
+      return {
+        ...movie,
+        cover_url: movie.cover_url.replace('http://', 'https://')
+      }
+    } else {
+      return {
+        ...movie,
+        cover_url: 'https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png'
+      }
+    }
+
+  }
 }
 
