@@ -8,7 +8,7 @@ import { ControlContainer } from '@angular/forms';
 })
 export class MovieFormComponent implements OnInit {
 
-  @Output() update= new EventEmitter();
+  @Output() update = new EventEmitter();
 
   constructor(private controlContainer: ControlContainer) { }
 

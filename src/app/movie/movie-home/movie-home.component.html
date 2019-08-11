@@ -18,7 +18,19 @@
     <movie-form
     [formGroup]="movieForm"
     (update)="updateActiveMovie()"
-  ></movie-form>
+    ></movie-form>
+
+     <!-- <form [formGroup]="movieForm" (update)="updateActiveMovie()">
+        <mat-form-field>
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+        <button type="submit" mat-button>Update Movie</button>
+    </form> -->
 </mat-card>
 <ng-container *ngFor="let movieObject of movies$ | async">
     <movie-item [movie]="movieObject" (selected)="selectMovie($event)"></movie-item>
