@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MovieHomeComponent } from './movie/movie-home/movie-home.component';
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -12,7 +14,8 @@ import { MovieHomeComponent } from './movie/movie-home/movie-home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    environment.production ? [] : AkitaNgDevtools.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

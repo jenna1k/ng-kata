@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "kata6"
+    }
+  },
+  "defaultProject": "kata6",
+  "cli": {
+    "defaultCollection": "@datorama/akita"
+  }
 }
