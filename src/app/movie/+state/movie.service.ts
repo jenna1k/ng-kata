@@ -13,9 +13,16 @@ export class MovieService {
   }
 
   get() {
-    return this.http.get<Movie[]>('https://api.com').pipe(tap(entities => {
-      this.movieStore.set(entities);
-    }));
+    this.movieStore.setLoading(true);
+    return this.http.get<Movie[]>
+    ('https://gist.githubusercontent.com/yannski/3019778/raw/dfb34d018165f47b61b3bf089358a3d5ca199d96/movies.json')
+    .subscribe(movies => {
+      this.movieStore.upsertMany(movies);
+      this.movieStore.setLoading(false);
+    });
+    // .pipe(tap(entities => {
+    //   this.movieStore.set(entities);
+    // }));
   }
 
   add(movie: Movie) {
