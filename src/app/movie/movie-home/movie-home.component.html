@@ -1,0 +1,37 @@
+<mat-card>
+    <form [formGroup]="sortByForm">
+        <mat-form-field>
+            <mat-label>sort by</mat-label>
+            <mat-select formControlName="sortBy">
+                <mat-option value="title">title</mat-option>
+                <mat-option value="rating">rating</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>sort by order</mat-label>
+            <mat-select formControlName="sortByOrder">
+                <mat-option value="aesc">AESC</mat-option>
+                <mat-option value="desc">DESC</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+    <movie-form
+    [formGroup]="movieForm"
+    (update)="updateActiveMovie()"
+    ></movie-form>
+
+     <!-- <form [formGroup]="movieForm" (update)="updateActiveMovie()">
+        <mat-form-field>
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+        <button type="submit" mat-button>Update Movie</button>
+    </form> -->
+</mat-card>
+<ng-container *ngFor="let movieObject of movies$ | async">
+    <movie-item [movie]="movieObject" (selected)="selectMovie($event)"></movie-item>
+</ng-container>
